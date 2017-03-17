@@ -77,15 +77,15 @@ class ViewController: UIViewController {
         let selectedQuestionDict = triviaSource.triviaQuestions[indexOfSelectedQuestion]
         let correctAnswer = selectedQuestionDict["Answer"]
         
-        if (sender === trueButton &&  correctAnswer == "A musical Instrument") || (sender === falseButton && correctAnswer == "A circular kick") || (sender === false2Button && correctAnswer == "A head butt") ||
-            (sender === false3Button && correctAnswer == "A cartwheel") {
+        if (sender === trueButton &&  correctAnswer == "a musical Instrument") || (sender === falseButton && correctAnswer == "a circular kick") || (sender === false2Button && correctAnswer == "a head butt") ||
+            (sender === false3Button && correctAnswer == "a cartwheel") {
             indexOfSelectedQuestion += 1
             correctQuestions += 1
             
             questionField.text = "Correct!"
         } else {
             indexOfSelectedQuestion += 1
-            questionField.text = "Sorry, wrong answer!"
+            questionField.text = "Sorry, wrong answer!\n  It's \((correctAnswer)!)"
             
         }
         

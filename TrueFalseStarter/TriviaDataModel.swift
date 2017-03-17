@@ -10,10 +10,10 @@ struct TriviaSource {
 
 
     let triviaQuestions: [[String : String]] = [
-        ["Question": "What is a Berimbau?", "Answer": "A musical Instrument"],
-        ["Question": "What is a Queixada?", "Answer": "A circular kick"],
-        ["Question": "What is a Cabeçada?", "Answer": "A head butt"],
-        ["Question": "What is an Aú?", "Answer": "A cartwheel"]
+        ["Question": "What is a Berimbau?", "Answer": "a musical Instrument"],
+        ["Question": "What is a Queixada?", "Answer": "a circular kick"],
+        ["Question": "What is a Cabeçada?", "Answer": "a head butt"],
+        ["Question": "What is an Aú?", "Answer": "a cartwheel"]
     ]
 
 }
