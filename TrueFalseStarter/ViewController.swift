@@ -19,14 +19,6 @@ class ViewController: UIViewController {
     let triviaSource = TriviaSource()
     var gameSound: SystemSoundID = 0
  
-    /*
-    let triviaQuestions: [[String : String]] = [
-        ["Question": "What is a Berimbau?", "Answer": "A musical Instrument"],
-        ["Question": "What is a Queixada?", "Answer": "A circular kick"],
-        ["Question": "What is a Cabeçada?", "Answer": "A head butt"],
-        ["Question": "What is an Aú?", "Answer": "A cartwheel"]
-    ]
- */
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
@@ -49,8 +41,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /*
     func displayQuestion() {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaSource.triviaQuestions.count)
+        let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
+        questionField.text = questionDictionary["Question"]
+        playAgainButton.isHidden = true
+    }
+    */
+    
+    func displayQuestion() {
         let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.isHidden = true
@@ -79,13 +79,18 @@ class ViewController: UIViewController {
         
         if (sender === trueButton &&  correctAnswer == "A musical Instrument") || (sender === falseButton && correctAnswer == "A circular kick") || (sender === false2Button && correctAnswer == "A head butt") ||
             (sender === false3Button && correctAnswer == "A cartwheel") {
+            indexOfSelectedQuestion += 1
             correctQuestions += 1
+            
             questionField.text = "Correct!"
         } else {
+            indexOfSelectedQuestion += 1
             questionField.text = "Sorry, wrong answer!"
+            
         }
         
         loadNextRoundWithDelay(seconds: 2)
+        
     }
     
     func nextRound() {
@@ -105,6 +110,7 @@ class ViewController: UIViewController {
         false2Button.isHidden = false
         false3Button.isHidden = false
         
+        indexOfSelectedQuestion = 0
         questionsAsked = 0
         correctQuestions = 0
         nextRound()

@@ -18,4 +18,3 @@ struct TriviaSource {
 
 }
 
-// here we go!
