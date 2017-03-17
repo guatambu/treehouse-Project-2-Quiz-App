@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     var indexOfSelectedQuestion: Int = 0
     let triviaSource = TriviaSource()
     var gameSound: SystemSoundID = 0
+    var failBuzzer: SystemSoundID = 0
+    var claps: SystemSoundID = 0
  
     
     @IBOutlet weak var questionField: UILabel!
@@ -79,17 +81,20 @@ class ViewController: UIViewController {
         
         if (sender === trueButton &&  correctAnswer == "a musical Instrument") || (sender === falseButton && correctAnswer == "a circular kick") || (sender === false2Button && correctAnswer == "a head butt") ||
             (sender === false3Button && correctAnswer == "a cartwheel") {
+            loadCorrectSound()
+            playCorrectSound()
             indexOfSelectedQuestion += 1
             correctQuestions += 1
-            
             questionField.text = "Correct!"
         } else {
+            loadIncorrectSound()
+            playIncorrectSound()
             indexOfSelectedQuestion += 1
             questionField.text = "Sorry, wrong answer!\n  It's \((correctAnswer)!)"
             
         }
         
-        loadNextRoundWithDelay(seconds: 2)
+        loadNextRoundWithDelay(seconds: 2.5)
         
     }
     
@@ -120,7 +125,7 @@ class ViewController: UIViewController {
     
     // MARK: Helper Methods
     
-    func loadNextRoundWithDelay(seconds: Int) {
+    func loadNextRoundWithDelay(seconds: Double) {
         // Converts a delay in seconds to nanoseconds as signed 64 bit integer
         let delay = Int64(NSEC_PER_SEC * UInt64(seconds))
         // Calculates a time value to execute the method given current time and delay
@@ -141,5 +146,25 @@ class ViewController: UIViewController {
     func playGameStartSound() {
         AudioServicesPlaySystemSound(gameSound)
     }
-}
+    
+    func loadIncorrectSound() {
+        let pathToSoundFile = Bundle.main.path(forResource: "FailBuzzer", ofType: "wav")
+        let soundURL = URL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL as CFURL, &failBuzzer)
+    }
+    
+    func playIncorrectSound() {
+        AudioServicesPlaySystemSound(failBuzzer)
+    }
+    
+    func loadCorrectSound() {
+        let pathToSoundFile = Bundle.main.path(forResource: "Claps", ofType: "wav")
+        let soundURL = URL(fileURLWithPath: pathToSoundFile!)
+        AudioServicesCreateSystemSoundID(soundURL as CFURL, &claps)
+    }
+    
+    func playCorrectSound() {
+        AudioServicesPlaySystemSound(claps)
+    }
 
+}

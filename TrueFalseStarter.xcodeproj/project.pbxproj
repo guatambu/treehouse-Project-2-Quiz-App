@@ -14,6 +14,8 @@
 		97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97093D441C913506001275BC /* LaunchScreen.storyboard */; };
 		97093D531C932116001275BC /* GameSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97093D521C932116001275BC /* GameSound.wav */; };
 		FA2B45791E7BA13300E893DB /* TriviaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B45781E7BA13300E893DB /* TriviaDataModel.swift */; };
+		FA2B457B1E7BB0B200E893DB /* Claps.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA2B457A1E7BB0B200E893DB /* Claps.wav */; };
+		FA2B457D1E7BB0BE00E893DB /* FailBuzzer.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA2B457C1E7BB0BE00E893DB /* FailBuzzer.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		97093D471C913506001275BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97093D521C932116001275BC /* GameSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSound.wav; sourceTree = "<group>"; };
 		FA2B45781E7BA13300E893DB /* TriviaDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaDataModel.swift; sourceTree = "<group>"; };
+		FA2B457A1E7BB0B200E893DB /* Claps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Claps.wav; sourceTree = "<group>"; };
+		FA2B457C1E7BB0BE00E893DB /* FailBuzzer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FailBuzzer.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +65,13 @@
 				97093D3B1C913506001275BC /* AppDelegate.swift */,
 				97093D3D1C913506001275BC /* ViewController.swift */,
 				97093D3F1C913506001275BC /* Main.storyboard */,
+				FA2B45781E7BA13300E893DB /* TriviaDataModel.swift */,
 				97093D421C913506001275BC /* Assets.xcassets */,
 				97093D441C913506001275BC /* LaunchScreen.storyboard */,
 				97093D471C913506001275BC /* Info.plist */,
 				97093D521C932116001275BC /* GameSound.wav */,
-				FA2B45781E7BA13300E893DB /* TriviaDataModel.swift */,
+				FA2B457A1E7BB0B200E893DB /* Claps.wav */,
+				FA2B457C1E7BB0BE00E893DB /* FailBuzzer.wav */,
 			);
 			path = TrueFalseStarter;
 			sourceTree = "<group>";
@@ -131,7 +137,9 @@
 			files = (
 				97093D531C932116001275BC /* GameSound.wav in Resources */,
 				97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */,
+				FA2B457D1E7BB0BE00E893DB /* FailBuzzer.wav in Resources */,
 				97093D431C913506001275BC /* Assets.xcassets in Resources */,
+				FA2B457B1E7BB0B200E893DB /* Claps.wav in Resources */,
 				97093D411C913506001275BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
