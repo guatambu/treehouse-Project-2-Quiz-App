@@ -6,6 +6,8 @@
 //  Copyright © 2016 Treehouse. All rights reserved.
 //
 
+// PLEASE NOTE: i kept my comments to a minimum since this is not my original codeblock.  i did include some where i elt relevant and appropriate.
+
 import UIKit
 import GameKit
 import AudioToolbox
@@ -23,10 +25,12 @@ class ViewController: UIViewController {
  
     
     @IBOutlet weak var questionField: UILabel!
+    // i belabored the button names for too long. finally, i just went generic. 
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var false2Button: UIButton!
     @IBOutlet weak var false3Button: UIButton!
+    
     @IBOutlet weak var playAgainButton: UIButton!
     
 
@@ -43,7 +47,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+    /* 
+    PLEASE NOTE:  i ran into difficulties, not in generating the random questions order, but in preventing question repetition.  i couldn't figure out a way to flag a question as having been asked, thereby removing it from possible choices in the next round.  i tried removing the question from the array in the instance created, but ran into two problems...
+        1) actually removing the item from the array because the value of the question dictionary was not 'Equatable'
+        2) resetting the instance before beginning the new round
+        i sought help on stack overflow, and got the response and idea of creating an array of structs rather than dictionaries...  i wasn't confident in that approach.
+        Thoughts?
+     
+    So, i left this here just as a reminder that i did try to use this idea.
+     
     func displayQuestion() {
         indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaSource.triviaQuestions.count)
         let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
@@ -51,6 +63,8 @@ class ViewController: UIViewController {
         playAgainButton.isHidden = true
     }
     */
+    
+    // PLEASE NOTE: the questions are displayed without repitition.
     
     func displayQuestion() {
         let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
@@ -147,6 +161,12 @@ class ViewController: UIViewController {
         AudioServicesPlaySystemSound(gameSound)
     }
     
+    // my additional sounds.  
+    // PLEASE NOTE:  it was hard to find sound files that were appropriate.  
+    // UX is a bit wonky as a result.
+    // every site except one i went to wanted youto create an account and blah blah blah, so...
+    // the little bit of wonkiness is a result of the duration of the sound files i found
+    
     func loadIncorrectSound() {
         let pathToSoundFile = Bundle.main.path(forResource: "FailBuzzer", ofType: "wav")
         let soundURL = URL(fileURLWithPath: pathToSoundFile!)
@@ -166,5 +186,7 @@ class ViewController: UIViewController {
     func playCorrectSound() {
         AudioServicesPlaySystemSound(claps)
     }
+    
+    // i took a crack at the extra credit, but felt i had the ability to do 2 of them effectively.
 
 }
