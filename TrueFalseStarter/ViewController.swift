@@ -6,7 +6,7 @@
 //  Copyright © 2016 Treehouse. All rights reserved.
 //
 
-// PLEASE NOTE: i kept my comments to a minimum since this is not my original codeblock.  i did include some where i elt relevant and appropriate.
+// PLEASE NOTE: i kept my comments to a minimum since this is not my original codeblock.  i did include some where i felt relevant and appropriate.
 
 import UIKit
 import GameKit
@@ -17,8 +17,9 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
-    let triviaSource = TriviaSource()
+    // let triviaSource = TriviaSource()
+    let triviaSource1 = TriviaSource1()
+    var currentQuestion = TriviaQuestionStruct()
     var gameSound: SystemSoundID = 0
     var failBuzzer: SystemSoundID = 0
     var claps: SystemSoundID = 0
@@ -55,23 +56,22 @@ class ViewController: UIViewController {
         Thoughts?
      
     So, i left this here just as a reminder that i did try to use this idea.
-     
+     */
     func displayQuestion() {
-        indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: triviaSource.triviaQuestions.count)
-        let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
-        questionField.text = questionDictionary["Question"]
+        currentQuestion = triviaSource1.randomQuestion()
+        questionField.text = currentQuestion.question
         playAgainButton.isHidden = true
     }
-    */
+    
     
     // PLEASE NOTE: the questions are displayed without repitition.
-    
+/*
     func displayQuestion() {
         let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
         questionField.text = questionDictionary["Question"]
         playAgainButton.isHidden = true
     }
-    
+*/
     func displayScore() {
         // Hide the answer buttons
         trueButton.isHidden = true
@@ -90,21 +90,20 @@ class ViewController: UIViewController {
         // Increment the questions asked counter
         questionsAsked += 1
         
-        let selectedQuestionDict = triviaSource.triviaQuestions[indexOfSelectedQuestion]
-        let correctAnswer = selectedQuestionDict["Answer"]
+        let correctAnswer = currentQuestion.answer
         
         if (sender === trueButton &&  correctAnswer == "a musical Instrument") || (sender === falseButton && correctAnswer == "a circular kick") || (sender === false2Button && correctAnswer == "a head butt") ||
             (sender === false3Button && correctAnswer == "a cartwheel") {
             loadCorrectSound()
             playCorrectSound()
-            indexOfSelectedQuestion += 1
+            
             correctQuestions += 1
             questionField.text = "Correct!"
         } else {
             loadIncorrectSound()
             playIncorrectSound()
-            indexOfSelectedQuestion += 1
-            questionField.text = "Sorry, wrong answer!\n  It's \((correctAnswer)!)"
+            
+            questionField.text = "Sorry, wrong answer!\n  It's \((correctAnswer))"
             
         }
         
@@ -128,8 +127,7 @@ class ViewController: UIViewController {
         falseButton.isHidden = false
         false2Button.isHidden = false
         false3Button.isHidden = false
-        
-        indexOfSelectedQuestion = 0
+        // currentQuestion = TriviaQuestionStruct
         questionsAsked = 0
         correctQuestions = 0
         nextRound()
