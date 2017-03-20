@@ -92,8 +92,8 @@ class ViewController: UIViewController {
         
         let correctAnswer = currentQuestion.answer
         
-        if (sender === trueButton &&  correctAnswer == "a musical Instrument") || (sender === falseButton && correctAnswer == "a circular kick") || (sender === false2Button && correctAnswer == "a head butt") ||
-            (sender === false3Button && correctAnswer == "a cartwheel") {
+        if (sender === trueButton &&  correctAnswer == "Musical Instrument") || (sender === falseButton && correctAnswer == "Circular Kick") || (sender === false2Button && correctAnswer == "Hand Strike") ||
+            (sender === false3Button && correctAnswer == "Ground Movement") {
             loadCorrectSound()
             playCorrectSound()
             
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
             loadIncorrectSound()
             playIncorrectSound()
             
-            questionField.text = "Sorry, wrong answer!\n  It's \((correctAnswer))"
+            questionField.text = "Sorry, wrong answer!\n  It's a type of \((correctAnswer))"
             
         }
         

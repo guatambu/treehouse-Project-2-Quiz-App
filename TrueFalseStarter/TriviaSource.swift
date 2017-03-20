@@ -20,14 +20,14 @@ struct TriviaQuestionStruct {
 
 // these are the instances of the various questions with their respective answers
 
-let questionA = TriviaQuestionStruct(question: "What is a Berimbau?", answer: "a Musical Instrument")
-let questionB = TriviaQuestionStruct(question: "What is a Queixada?", answer: "a Circular Kick")
-let questionC = TriviaQuestionStruct(question: "What is a Godeme?", answer: "a Hand Strike")
-let questionD = TriviaQuestionStruct(question: "What is an Aú?", answer: "a Ground Movement")
-let questionE = TriviaQuestionStruct(question: "What is an Agogô?", answer: "a Musical Instrument")
-let questionF = TriviaQuestionStruct(question: "What is a Rolê?", answer: "a Ground Movement")
-let questionG = TriviaQuestionStruct(question: "What is an Armada?", answer: "a Circular Kick")
-let questionH = TriviaQuestionStruct(question: "What is a Galopante?", answer: "a Hand Strike")
+let questionA = TriviaQuestionStruct(question: "What is a Berimbau?", answer: "Musical Instrument")
+let questionB = TriviaQuestionStruct(question: "What is a Queixada?", answer: "Circular Kick")
+let questionC = TriviaQuestionStruct(question: "What is a Godeme?", answer: "Hand Strike")
+let questionD = TriviaQuestionStruct(question: "What is an Aú?", answer: "Ground Movement")
+let questionE = TriviaQuestionStruct(question: "What is an Agogô?", answer: "Musical Instrument")
+let questionF = TriviaQuestionStruct(question: "What is a Rolê?", answer: "Ground Movement")
+let questionG = TriviaQuestionStruct(question: "What is an Armada?", answer: "Circular Kick")
+let questionH = TriviaQuestionStruct(question: "What is a Galopante?", answer: "Hand Strike")
 
 // this is an array of the question/answer instances
 
@@ -92,10 +92,10 @@ struct OptionDSource {
 
 // these are instances of the 4 response options
 
-let optionA = OptionASource(optionA: "a Musical Instrument")
-let optionB = OptionBSource(optionB: "a Circular Kick")
-let optionC = OptionCSource(optionC: "a Hand Strike")
-let optionD = OptionDSource(optionD: "a Ground Movement")
+let optionA = OptionASource(optionA: "Musical Instrument")
+let optionB = OptionBSource(optionB: "Circular Kick")
+let optionC = OptionCSource(optionC: "Hand Strike")
+let optionD = OptionDSource(optionD: "Ground Movement")
 
 // this is an aaray of those response option instances
 
@@ -104,7 +104,7 @@ var optionsArray = [optionA, optionB, optionC, optionD] as [Any]
 
 
 
-
+/*
 // this ia a holdover bit of code for right now
 struct TriviaSource {
     let triviaQuestions: [[String : String]] = [
@@ -114,6 +114,6 @@ struct TriviaSource {
         ["Question": "What is an Aú?", "Answer": "a cartwheel"]
     ]
 }
-
+*/
 
 
