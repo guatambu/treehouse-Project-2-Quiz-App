@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
-    // let triviaSource = TriviaSource()
     let triviaSource1 = TriviaSource1()
     var currentQuestion = TriviaQuestionStruct()
     var gameSound: SystemSoundID = 0
@@ -56,6 +55,9 @@ class ViewController: UIViewController {
         Thoughts?
      
     So, i left this here just as a reminder that i did try to use this idea.
+     
+    UPDATE:  Solved this issue.  questionsnow dipslaying randomly.
+     
      */
     func displayQuestion() {
         currentQuestion = triviaSource1.randomQuestion()
@@ -63,15 +65,6 @@ class ViewController: UIViewController {
         playAgainButton.isHidden = true
     }
     
-    
-    // PLEASE NOTE: the questions are displayed without repitition.
-/*
-    func displayQuestion() {
-        let questionDictionary = triviaSource.triviaQuestions[indexOfSelectedQuestion]
-        questionField.text = questionDictionary["Question"]
-        playAgainButton.isHidden = true
-    }
-*/
     func displayScore() {
         // Hide the answer buttons
         trueButton.isHidden = true
@@ -81,7 +74,8 @@ class ViewController: UIViewController {
         
         // Display play again button
         playAgainButton.isHidden = false
-        
+        loadCorrectSound()
+        playCorrectSound()
         questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
         
     }
@@ -127,10 +121,12 @@ class ViewController: UIViewController {
         falseButton.isHidden = false
         false2Button.isHidden = false
         false3Button.isHidden = false
-        // currentQuestion = TriviaQuestionStruct
         questionsAsked = 0
         correctQuestions = 0
         nextRound()
+        loadGameStartSound()
+        // Start game
+        playGameStartSound()
     }
     
 
