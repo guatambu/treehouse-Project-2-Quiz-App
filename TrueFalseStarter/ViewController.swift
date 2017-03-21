@@ -58,7 +58,7 @@ class ViewController: UIViewController {
      
     So, i left this here just as a reminder that i did try to use this idea.
      
-    UPDATE:  Solved this issue.  questionsnow dipslaying randomly.
+    UPDATE:  Solved this issue.  questions now dipslaying randomly and without repetition in each round of the game.
      
      */
     func displayQuestion() {
@@ -188,6 +188,6 @@ class ViewController: UIViewController {
         AudioServicesPlaySystemSound(claps)
     }
     
-    // i took a crack at the extra credit, but felt i had the ability to do 2 of them effectively.
+    // i took a crack at the extra credit.  i had the ability for 2 of them in my available time.
 
 }
