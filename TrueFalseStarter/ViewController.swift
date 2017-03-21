@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     let questionsPerRound = 4
     var questionsAsked = 0
     var correctQuestions = 0
-    let triviaSource1 = TriviaSource1()
+    var randomIndexNumber: Int = 0
+    var triviaSource = TriviaSource()
     var currentQuestion = TriviaQuestionStruct()
+    var removedArrayItem = TriviaQuestionStruct()
     var gameSound: SystemSoundID = 0
     var failBuzzer: SystemSoundID = 0
     var claps: SystemSoundID = 0
@@ -60,7 +62,9 @@ class ViewController: UIViewController {
      
      */
     func displayQuestion() {
-        currentQuestion = triviaSource1.randomQuestion()
+        randomIndexNumber = triviaSource.randomIndexNumberGenerator()
+        currentQuestion = triviaSource.randomQuestion(at: randomIndexNumber)
+        removedArrayItem = triviaSource.arrayItemRemover(at: randomIndexNumber)
         questionField.text = currentQuestion.question
         playAgainButton.isHidden = true
     }
@@ -123,10 +127,13 @@ class ViewController: UIViewController {
         false3Button.isHidden = false
         questionsAsked = 0
         correctQuestions = 0
+        triviaSource = TriviaSource()
+        currentQuestion = TriviaQuestionStruct()
         nextRound()
         loadGameStartSound()
         // Start game
         playGameStartSound()
+        
     }
     
 

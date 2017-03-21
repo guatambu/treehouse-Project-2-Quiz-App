@@ -31,11 +31,11 @@ let questionH = TriviaQuestionStruct(question: "What is a Galopante?", answer: "
 
 // this is an array of the question/answer instances
 
-struct TriviaSource1 {
+struct TriviaSource {
     
     let triviaQuestion = "0"
 
-    let questionAnswerArray/*: [TriviaQuestionStruct]*/ = [
+    var questionAnswerArray = [
         questionA,
         questionB,
         questionC,
@@ -46,10 +46,30 @@ struct TriviaSource1 {
         questionH
     ]
     
-    func randomQuestion() -> TriviaQuestionStruct {
+    func randomQuestion1() -> TriviaQuestionStruct {
         let randomIndexNumber = GKRandomSource.sharedRandom().nextInt(upperBound: questionAnswerArray.count)
         return questionAnswerArray[randomIndexNumber]
     }
+    
+    
+    /// func generates a random number based on questionAnswerArray's contents
+    func randomIndexNumberGenerator() -> Int {
+        let randomIndexNumber = GKRandomSource.sharedRandom().nextInt(upperBound: questionAnswerArray.count)
+        return randomIndexNumber
+    }
+    
+    /// func generates question from instance of questionAnswerArray based on provided index value
+    func randomQuestion(at index: Int) -> TriviaQuestionStruct {
+        let randomQuestion = questionAnswerArray[index]
+        return randomQuestion
+    }
+    
+    /// func removes question from instance of questionAnswerArray based on provided index value
+    mutating func arrayItemRemover(at index: Int) -> TriviaQuestionStruct {
+        let removedArrayItem = questionAnswerArray.remove(at: index)
+        return removedArrayItem
+    }
+    
     
 }
 
@@ -103,17 +123,5 @@ var optionsArray = [optionA, optionB, optionC, optionD] as [Any]
 
 
 
-
-/*
-// this ia a holdover bit of code for right now
-struct TriviaSource {
-    let triviaQuestions: [[String : String]] = [
-        ["Question": "What is a Berimbau?", "Answer": "a musical Instrument"],
-        ["Question": "What is a Queixada?", "Answer": "a circular kick"],
-        ["Question": "What is a Cabeçada?", "Answer": "a head butt"],
-        ["Question": "What is an Aú?", "Answer": "a cartwheel"]
-    ]
-}
-*/
 
 
